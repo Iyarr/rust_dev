@@ -1,19 +1,14 @@
 services:
-  dev:
-    build:
-      image: mcr.microsoft.com/devcontainers/rust:latest
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 2G
+
+  devcontainer:
+    image: mcr.microsoft.com/devcontainers/rust:latest
+    container_name: devcontainer
+    command: tail -f /dev/null
 
   app:
     build:
-      context: ..
-      dockerfile: .
-    volumes:
-      - ./:/app
+      context: .
+      dockerfile: dockerfile
     ports:
       - "7878:7878"
     deploy:

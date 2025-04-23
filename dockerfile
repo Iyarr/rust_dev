@@ -1,13 +1,12 @@
 FROM rust:latest
 
-COPY ./ /usr/rust
+COPY . /workspace
 
-WORKDIR /usr/rust
+WORKDIR /workspace
 
-RUN cargo install --path . && \
-    cargo install cargo-watch
+RUN cargo install --path .
 
 #cargo watch -x run
-#CMD [ "cargo","run" ]
-CMD ["cargo", "watch", "-x", "run"]
+CMD [ "cargo","run" ]
+#CMD ["cargo", "watch", "-x", "run"]
 

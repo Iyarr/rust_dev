@@ -1,18 +1,14 @@
 // .devcontainer/devcontainer.json
 {
   "name": "Rust Sandbox on Dev Container",
-  "image": "mcr.microsoft.com/devcontainers/rust:latest",
+  "dockerComposeFile": "../compose.yml",
+  "service": "devcontainer",
+  "workspaceFolder": "/workspace",
   "customizations": {
     "vscode": {
       "extensions": [
         "rust-lang.rust-analyzer"
       ]
     }
-  },
-  "runArgs": [
-    "--name=rust_dev",
-    "--rm",
-    "--memory=3g",         // メモリ上限
-    "--memory-swap=3g"     // スワップ含む上限
-  ]
+  }
 }
